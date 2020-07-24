@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href ="{{ url_for('static', filename ='/style.css')}}">
+    <title>Title</title>
+</head>
+<body>
+
+    <section class="timeAndDate">
+        <div id="time"></div>
+    </section>
+
+    <section class="quote">
+        <h1> {{ quote }} </h1>
+    </section>
+
+    <section class="newsAndSports">
+        <div class="news">
+            <ul>
+                {% for item in news %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="sports">
+             <ul>
+                {% for item in sport %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="weather">
+        <div class="weather_main">
+             <ul>
+                {% for key, item in forecast.items(): %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+                <img src="{{ forecast['graphic_link'] }}" alt="User Image">
+
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='dateAndTime.js') }}"></script>
+
+
+
+    </section>
+</body>
+</html>
